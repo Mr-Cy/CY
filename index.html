@@ -325,7 +325,7 @@ z-index: 1;
 
 
     var moshi=document.querySelector('.moshi');
-//代表播放模式
+        //代表播放模式
     var  mode=0;
     //存放播放模式的Y轴
     var modeAll=[-202,-230,-71];
@@ -344,34 +344,13 @@ z-index: 1;
 
         });
     
-    // for (var i=0; i<date.length; i++){
-    //     lis[i].index = i;
-    //     lis[i].addEventListener('click',function () {
-    //         index=this.index;
-    //         // init();
-    //         // paly();
-    //         $.ajax({
-    //             url:'https://api.imjad.cn/cloudmusic/',
-    //             data: {
-    //                 type:'song',
-    //                 id: date[index].id
-    //             },
-    //             type:'get',
-    //             success : function (date1) {
-    //                 console.log(date1);
-    //             },
-    //             error: function (err) {
-    //                 console.log(err);
-    //             }
-    //         });
-    //
-    //     });
-    // }
+
 
     function init() {
         rotDeg=0;
+        console.log(index);
         // pic.src =date[index].pic;
-        // audio.src =date[index].url;
+         //audio.src =date[index].url;
         // str+='<li><span>'+date[i].name+'</span><span>';
         // '+date[i].gs+'
         var gs= '';
@@ -381,6 +360,8 @@ z-index: 1;
 
         // str+= '</span></li>';
         gm.innerHTML=date[index].name+'--'+gs;
+
+
         //切换列表选中项
         
         // for (var i=0; i<date.length; i++){
@@ -392,6 +373,8 @@ z-index: 1;
     //播放暂停
     function paly(){
         pic.src = date[index].al.picUrl;
+        // 更改播放路径
+        audio.src = 'http://music.163.com/song/media/outer/url?id='+date[index].id+'.mp3';
         //播放音乐
         audio.play();
         //按钮变暂停
@@ -422,8 +405,16 @@ z-index: 1;
 
     //上一曲
     prve.addEventListener('click',function () {
+        if(mode==2){
+                do {
+                    var num=   Math.floor(Math.random()*date.length);
+
+                }while (num == index );
+                index=num;
+        }else {
+            index--;
+        }
         //三元运算
-        index--;
         index= index<0 ? date.length-1 : index;
         init();
         paly();
@@ -431,8 +422,18 @@ z-index: 1;
 
     //下一曲
     nex.addEventListener('click',function () {
-        //三元运算
-        index++;
+        if (mode==2){
+        do {
+            var num=   Math.floor(Math.random()*date.length);
+
+        }while (num == index );
+        index=num;
+        }else {
+            index++;
+        }
+
+
+
         index= index>date.length-1? 0 : index;
         init();
         paly();
