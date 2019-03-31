@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+</head>
+
+
+<style>
+    body{
+
+    }
+    .box22{
+        width: 200px;
+        height: 200px;
+        margin: 0px ;
+        padding: 0px;
+        position: relative;
+        top: 194px;
+            z-index: 0;
+        left: 438px;
+        transform-style: preserve-3d;
+        perspective:1200px;
+        animation: xuanz 10s linear infinite;
+
+
+    }
+
+/*//终止代码*/
+    body{
+        background-color: black;
+
+
+    }
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    p{
+        color: #cccccc;
+    }
+        .box1{
+
+            width: 800px;
+            margin: 20px auto;
+
+            display: flex;
+        }
+    .box2 img{
+
+        border-radius: 50%;
+
+        width: 250px;
+        height: 250px;
+    }
+    .box{
+        border: 3px solid #cccccc;
+        width: 800px;
+        margin:0px  0px 0px 478px;
+        z-index:1;
+    }
+    .div3{
+        width: 450px;
+        height: 150px;
+        margin: 20px;
+        padding: 20px;
+        z-index:1;
+    }
+
+    .bar1{
+        border:  4px solid #ccc;
+        width: 0px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+z-index: 1;
+    }
+    .int{
+        position: absolute;
+        top: 235px;
+        left:1005px;
+    }
+
+    .bar2{
+        border:  4px solid rgb(114,119,122);
+        position: absolute;
+        width: 300px;
+        left: 0px;
+        top: 0px;
+    }
+        .bar3{
+            border:  10px solid #ccc;
+            border-radius: 50%;
+            width: 2px;
+            position: absolute;
+            left: 0px;
+            top: -6px;
+            z-index: 1;
+        }
+    .bar{
+        position: relative;
+        margin: 80px 0px 0px 0px;
+
+    }
+    .bar p{
+        position: absolute;
+        right: 32px;
+        top: -9px;
+
+    }
+
+    .butt{
+        margin: 70px 0px 0px 0px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .butt div{
+        background: url("AI.png") no-repeat;
+
+    }
+    .butt .prve{
+        width: 28px;
+        height: 24px;
+        background-position-y: -27px;
+    }
+    .butt .sta{
+        width: 23px;
+        height: 30px;
+    }
+    .butt .nex{
+        width: 23px;
+        height: 25px;
+        background-position-y: -49px;
+    }
+    .butt .moshi{
+        width: 30px;
+        height: 25px;
+        background-position-y: -202px;
+    }
+    .butt .volu{
+        width: 23px;
+        height: 25px;
+        background-position-y: -142px;
+    }
+
+    ul{
+        list-style: none;
+    }
+    .lie{
+        width: 100%;
+        padding: 30px;
+        box-sizing:border-box;
+
+    }
+    .lie li{
+        height: 30px;
+        line-height: 30px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dashed #cccccc;
+    }
+    .gm{
+        color: #cccccc;
+        font-size: 25px;
+    }
+    .gs{
+        color: #cccccc;
+        font-size: 25px;
+    }
+    span{
+        color: #cccccc;
+        font-size: 20px;
+    }
+    .p1{
+      margin: -20px;
+    }
+    .bar-box{
+        height: 5px;
+        width: 300px;
+
+
+    }
+    .active{
+        background-color: red;
+    }
+    /*终止*/
+
+</style>
+
+<body >
+ <div class="int">
+     <input type="text" class="text1">
+     <button class="button">搜索</button>
+
+ </div>
+
+
+<div class="box22">
+
+    <div class="top"></div>
+    <div class="xia"></div>
+    <div class="lef"></div>
+    <div class="ri"></div>
+    <div class="qian"></div>
+    <div class="hou"></div>
+
+</div>
+
+
+
+
+<div class="box">
+    <div class="box1">
+        <div class="box2">
+            <img src="TP.jpg" alt="">
+        </div>
+        <div class="div3">
+            <div class="gm">
+                绿色---  陈雪柠
+
+            </div>
+
+
+            <div class="bar">
+                <div class="bar-box">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+
+                <p class="p1">
+                    <span class="dtim">00:00</span>/
+                    <span class="tim">00:00</span>
+                </p>
+            </div>
+
+            <div class="butt">
+                <div class="prve"></div>
+                <div class="sta"></div>
+                <div class="nex"></div>
+                <div class="moshi"></div>
+                <div class="volu"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="lie">
+        <ul></ul>
+    </div>
+</div>
+<audio></audio>
+ <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+<script>
+
+    var index=0;
+    var rotDeg=0;
+    var date =[];
+    var timer=null;
+    var  audio=document.querySelector('audio');
+    var  pic=document.querySelector('.box2 img');
+    var  sta=document.querySelector('.butt .sta');
+    var  gm=document.querySelector('.div3 .gm');
+    var  prve=document.querySelector('.butt .prve');
+    var  nex=document.querySelector('.div3 .nex');
+    var  dtim=document.querySelector('.bar p .dtim');
+    var  tim=document.querySelector('.bar p .tim');
+    var barBox=document.querySelector('.bar-box');
+    var bor3=document.querySelector('.bar3');
+    var bor2=document.querySelector('.bar1');
+    var lie=document.querySelector('.lie ul');
+    var str='';
+    var text1=document.querySelector('.int .text1');
+    var button=document.querySelector('.int .button');
+    var lis=null;
+    var body=document.querySelector('body');
+    button.addEventListener('click',function () {
+       //搜索音乐列表
+       $.ajax({
+            url:'https://api.imjad.cn/cloudmusic/',
+            data:{
+                type: 'search',
+                s: text1.value
+            },
+           type:'get',
+           // dateType:'json',
+            success:function (date1) {
+               date = date1.result.songs;
+
+
+               var str='';
+                for (var i=0; i<date.length; i++){
+                    str+='<li><span>'+date[i].name+'</span><span>';
+                    // '+date[i].gs+'
+                    for (var q=0; q<date[i].ar.length; q++) {
+                        str+=  date[i].ar[q].name+' ';
+                    }
+                    str+= '</span></li>';
+                };
+                lie.innerHTML = str;
+                lis = document.querySelectorAll('li');
+
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        })
+
+
+    });
+
+
+
+
+
+    var moshi=document.querySelector('.moshi');
+//代表播放模式
+    var  mode=0;
+    //存放播放模式的Y轴
+    var modeAll=[-202,-230,-71];
+    moshi.addEventListener('click',function () {
+        mode = ++mode >modeAll.length-1 ? 0:mode;
+       moshi.style.backgroundPositionY=modeAll[mode]+'px';
+    });
+        $('.lie ul').on('click','li',function () {
+
+
+            index = $(this).index();
+            audio.src = 'http://music.163.com/song/media/outer/url?id='+date[index].id+'.mp3';
+
+                    init();
+                    paly();
+
+        });
+    
+    // for (var i=0; i<date.length; i++){
+    //     lis[i].index = i;
+    //     lis[i].addEventListener('click',function () {
+    //         index=this.index;
+    //         // init();
+    //         // paly();
+    //         $.ajax({
+    //             url:'https://api.imjad.cn/cloudmusic/',
+    //             data: {
+    //                 type:'song',
+    //                 id: date[index].id
+    //             },
+    //             type:'get',
+    //             success : function (date1) {
+    //                 console.log(date1);
+    //             },
+    //             error: function (err) {
+    //                 console.log(err);
+    //             }
+    //         });
+    //
+    //     });
+    // }
+
+    function init() {
+        rotDeg=0;
+        // pic.src =date[index].pic;
+        // audio.src =date[index].url;
+        // str+='<li><span>'+date[i].name+'</span><span>';
+        // '+date[i].gs+'
+        var gs= '';
+        for (var q=0; q<date[index].ar.length; q++) {
+            gs+=  date[index].ar[q].name+' ';
+        }
+
+        // str+= '</span></li>';
+        gm.innerHTML=date[index].name+'--'+gs;
+        //切换列表选中项
+        
+        // for (var i=0; i<date.length; i++){
+        //     lis[i].className = '';
+        // } ;
+        //  lis[index].className = 'active';
+    }
+
+    //播放暂停
+    function paly(){
+        pic.src = date[index].al.picUrl;
+        //播放音乐
+        audio.play();
+        //按钮变暂停
+        sta.style.backgroundPositionX=-30+'px';
+
+        clearInterval(timer);//清楚上一次定时器
+        //封面旋转
+        timer=  setInterval(function () {
+            rotDeg++;
+            pic.style.transform= 'rotate('+rotDeg+'deg)';
+        },30);
+    }
+
+    sta.addEventListener('click',function () {
+        if (audio.paused){
+            paly();
+        }else{
+            audio.pause();
+            sta.style.backgroundPositionX=0+'px';
+            //清除定时器
+            clearInterval(timer);
+        }
+        
+
+
+
+    });
+
+    //上一曲
+    prve.addEventListener('click',function () {
+        //三元运算
+        index--;
+        index= index<0 ? date.length-1 : index;
+        init();
+        paly();
+    });
+
+    //下一曲
+    nex.addEventListener('click',function () {
+        //三元运算
+        index++;
+        index= index>date.length-1? 0 : index;
+        init();
+        paly();
+    });
+    //canplay 当音频准备完成好触发canplay事件
+    audio.addEventListener('canplay',function () {
+        var min = parseInt(audio.duration/60);
+        var se = parseInt(audio.duration%60);
+        tim.innerHTML = fromatTim(min)+':'+fromatTim(se);
+        audio.addEventListener('timeupdate',function () {
+            //audio.currentTime获取当前播放时间
+
+            var dmin = parseInt(audio.currentTime/60);
+            var dse = parseInt(audio.currentTime%60);
+            dtim.innerHTML=fromatTim(dmin)+':'+fromatTim(dse);
+            var  left= audio.currentTime/audio.duration * barBox.clientWidth;
+            bor3.style.left = left+'px';
+            bor2.style.width = left+'px';
+
+
+            if (audio.ended){
+                switch (mode) {
+                    case 0:
+                        index++;
+                        index= index>date.length-1? 0 : index;
+                        init();
+                        paly();
+                        break;
+                    case 1:
+                        init();
+                        paly();
+                        break;
+                    case 2:
+                        do {
+                            var num=   Math.floor(Math.random()*date.length);
+
+                        }while (num == index );
+                        
+                        index=num;
+                        
+
+                        init();
+                        paly();
+                        break;
+                }
+                //三元运算
+
+            };
+
+        });
+        barBox.addEventListener('click',function (e) {
+           // 找到鼠标的位置
+            //鼠标点击对象的位置
+          audio.currentTime=e.offsetX / barBox.clientWidth * audio.duration;
+
+          //   console.log(barBox.clientWidth);
+        });
+
+    });
+    //格式化时间
+    function fromatTim(tim) {
+        return tim>9 ? tim:'0'+tim;
+    };
+    window.addEventListener('keydown',function (e) {
+        //检测按下了那个按键;
+        console.log(e.keyCode);
+        if (e.keyCode==32){
+            paly();
+
+        }
+    });
+</script>
+</body>
+</html>
